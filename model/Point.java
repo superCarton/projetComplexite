@@ -1,6 +1,5 @@
-/**
- * Created by yukikoo on 1/2/15.
- */
+package model;
+
 public class Point implements Comparable{
 
     public int getX() {
