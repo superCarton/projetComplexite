@@ -37,23 +37,5 @@ public class Fenetre extends JFrame {
 	    setVisible(true);
 		setLocationRelativeTo(null);
 	}
-	
-	
-	public static void main(String args[]){
-
-		List<int[]> l1 = new LinkedList<int[]>();
-		int[] r1 = {2, 1, 0, 0};
-		l1.add(r1);
-		int[] r2 = {1, 2, 0, 1};
-		l1.add(r2);
-		int[] r3 = {1, 2, 1, 1};
-		l1.add(r3);
-		int[] r4 = {1, 1, 2, 2};
-		l1.add(r4);
-		Boite b1 = new Boite(3, 3, l1);
-		List<Boite> boites =new LinkedList<Boite>();
-		boites.add(b1);
-		new Fenetre(boites);
-	}
 
 }

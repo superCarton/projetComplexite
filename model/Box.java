@@ -32,4 +32,9 @@ public class Box {
     public int size(){
         return x * y;
     }
+
+    @Override
+    public String toString(){
+        return "Coordonnée: "+ getPosition() +"; taille: "+getX() + "x" + getY() +"\n";
+    }
 }

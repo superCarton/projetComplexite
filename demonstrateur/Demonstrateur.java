@@ -1,7 +1,10 @@
 package demonstrateur;
 
 import model.Box;
+import model.Container;
 import model.Rangeur;
+import view.Boite;
+import view.Fenetre;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -21,5 +24,22 @@ public class Demonstrateur {
         Rangeur r = new Rangeur(listBox, 3, 3);
         r.ranger();
         System.out.println(r);
+
+
+        List<Boite> boites =new LinkedList<>();
+        for(Container container: r.getContainers()){
+            List<int[]> boitesGraphique = new LinkedList<>();
+            for(Box box: container.getRangement()){
+                int[] b = new int[4];
+                b[0] = box.getX();
+                b[1] = box.getY();
+                b[2] = box.getPosition().getX();
+                b[3] = box.getPosition().getY();
+                boitesGraphique.add(b);
+            }
+            Boite b = new Boite(container.getX(), container.getY(), boitesGraphique);
+            boites.add(b);
+        }
+        new Fenetre(boites);
     }
 }

@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,11 @@ import java.util.Map;
 public class Rangeur {
 
     private List<Box> listBox;
+
+    public List<Container> getContainers() {
+        return containers;
+    }
+
     private List<Container> containers = new LinkedList<Container>();
     private int xSize;
     private int ySize;
@@ -23,7 +29,7 @@ public class Rangeur {
             str += "Boite n°"+numero+" :";
             for (Box box : container.getRangement())
             {
-                str += "Coordonnée: "+ box.getPosition() +"; taille: "+box.getX() + "x" + box.getY() +"\n";
+                str += box;
             }
             numero++;
         }
@@ -36,6 +42,11 @@ public class Rangeur {
         this.listBox = box;
         this.xSize = xSize;
         this.ySize = ySize;
+        listBox.sort(new BoxComparer());
+
+        for(Box b: listBox){
+            System.out.println(b);
+        }
 
     }
 
@@ -73,7 +84,6 @@ public class Rangeur {
         if(currentSubContainerYSize < 0){
             currentSubContainerYSize*=-1;
         }
-
         Box box = getBiggestFittingBox(currentSubContainerXSize,currentSubContainerYSize);
         if(box == null){
             return false;
