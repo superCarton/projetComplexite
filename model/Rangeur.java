@@ -46,6 +46,9 @@ public class Rangeur {
 
         for(Box b: listBox){
             System.out.println(b);
+            if(b.getX() > xSize || b.getY() > ySize){
+                throw new RuntimeException("La boite est plus grande que le conteneur, c'est n'importe quoi");
+            }
         }
 
     }
