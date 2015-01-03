@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="projetComplexite:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/projetComplexite_jar</output-path>
+    <root id="archive" name="projetComplexite.jar">
+      <element id="module-output" name="projetComplexite" />
+    </root>
+  </artifact>
+</component>
