@@ -8,6 +8,7 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.Border;
 
 public class Fenetre extends JFrame {
@@ -30,6 +31,8 @@ public class Fenetre extends JFrame {
 			container.add(bo);
 		}
 		
+		JScrollPane scrPane = new JScrollPane(container);
+        getContentPane().add(scrPane);
 		setContentPane(container);
 		Dimension tailleEcran = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 		setPreferredSize(new Dimension((int)tailleEcran.getWidth(), (int)tailleEcran.getHeight()));
