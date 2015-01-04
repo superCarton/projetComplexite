@@ -101,6 +101,7 @@ public class Rangeur {
         }else{
 
             Point newLeftTop1 = new Point(leftTop.getX(), leftTop.getY() + box.getY() );
+
             if(ranger(container, newLeftTop1, rightBottom)){
                 return true;
             }

@@ -24,6 +24,10 @@ public class Demonstrateur {
 
     public static void main(String [] args) throws IOException {
 
+        if(args.length != 1){
+            System.out.println("aucun argument, attendu: nom du fichier");
+            return;
+        }
         String fileSrc = args[0];
         System.out.println(fileSrc);
         File file = new File(fileSrc);

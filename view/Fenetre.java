@@ -1,14 +1,10 @@
 package view;
 
-import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.awt.*;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.swing.BorderFactory;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import javax.swing.*;
 import javax.swing.border.Border;
 
 public class Fenetre extends JFrame {
@@ -24,18 +20,21 @@ public class Fenetre extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		boites = b;
 		
-		container.setLayout(new FlowLayout(50, 50, 20));
+		container.setLayout(new WrapLayout());
 		for (Boite bo : boites){
 			Border padding = BorderFactory.createEmptyBorder(10, 30, 10, 30);
 		    bo.setBorder(padding);
 			container.add(bo);
+
 		}
-		
-		JScrollPane scrPane = new JScrollPane(container);
-        getContentPane().add(scrPane);
-		setContentPane(container);
+
 		Dimension tailleEcran = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-		setPreferredSize(new Dimension((int)tailleEcran.getWidth(), (int)tailleEcran.getHeight()));
+		JScrollPane scrollPane = new JScrollPane(container);
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setViewportView(container);
+		setContentPane(scrollPane);
+		setPreferredSize(new Dimension((int) tailleEcran.getWidth(), (int) tailleEcran.getHeight()));
 	    pack();
 	    setVisible(true);
 		setLocationRelativeTo(null);
